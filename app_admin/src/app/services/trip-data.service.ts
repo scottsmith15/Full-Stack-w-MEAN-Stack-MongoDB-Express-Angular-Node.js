@@ -38,8 +38,18 @@ export class TripDataService {
       .catch(this.handleError);
   }
 
+  public deleteTrip(formData: Trip): Promise<Trip> {
+    console.log('Inside TripDataService#deleteTrip');
+    console.log(formData);
+    return this.http
+      .delete(this.tripUrl + formData.code)
+      .toPromise()
+      .then(response => response.json() as Trip[])
+      .catch(this.handleError);
+   }
+
   public updateTrip(formData: Trip): Promise<Trip> {
-    console.log('Inside TripDataService#upateTrip');
+    console.log('Inside TripDataService#updateTrip');
     console.log(formData);
     return this.http
       .put(this.tripUrl + formData.code, formData)
