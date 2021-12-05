@@ -1,3 +1,4 @@
+const { NotExtended } = require('http-errors');
 const mongoose = require('mongoose');
 const Trip = mongoose.model('trips');
 const User = mongoose.model('users');
@@ -44,35 +45,37 @@ const tripsFindCode = async (req, res) => {
         });
 };
 
+
+
 const tripsAddTrip = async (req, res) => {
-    console.log('tripsAddTrip invoked with:\n' + req.body);
-    getUser(req, res, 
+    //console.log('tripsAddTrip invoked with:\n' + req.body);
+    getUser(req, res,
         (req, res) => {
-    Trip
-        .create({
-            code: req.body.code,
-            name: req.body.name,
-            length: req.body.length,
-            start: req.body.start,
-            resort: req.body.resort,
-            perPerson: req.body.perPerson,
-            image: req.body.image,
-            description: req.body.description
-        },
-            (err, trip) => {
-                if (err) {
-                    return res
-                        .status(400) // bad request, invalid content
-                        .json(err);
-                } else {
-                    return res
-                        .status(201) // created
-                        .json(trip);
-                }
-            });
+            Trip
+                .create({
+                    code: req.body.code,
+                    name: req.body.name,
+                    length: req.body.length,
+                    start: req.body.start,
+                    resort: req.body.resort,
+                    perPerson: req.body.perPerson,
+                    image: req.body.image,
+                    description: req.body.description
+                },
+                    (err, trip) => {
+                        if (err) {
+                            return res
+                                .status(400) // bad request, invalid content
+                                .json(err);
+                        } else {
+                            return res
+                                .status(201) // created
+                                .json(trip);
+                        }
+                    });
         }
-    );    
-};
+    );
+}
 
 const tripsUpdateTrip = async (req, res) => {
     console.log(req.body);
