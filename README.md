@@ -1,4 +1,6 @@
 # Full Stack Development with MEAN
+![backend](https://user-images.githubusercontent.com/82340486/155405597-2d814b13-3ae7-4616-a3df-cb23c41389ba.jpg)
+![frontend](https://user-images.githubusercontent.com/82340486/155405626-1ba59e8a-c2ea-49d0-b901-13f3cebe937e.jpg)
 
 # Architecture
 ## Compare and contrast the types of frontend development you used in your full stack project, including Express HTML, JavaScript, and the single-page application (SPA).
